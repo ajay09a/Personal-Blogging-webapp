@@ -1,16 +1,24 @@
 import React from 'react';
-import { useForm } from './useForm';
+import { useForm } from '../useForm';
+import { firestore } from '../firebase';
 
 const CreatePost = () => {
     const title = useForm('');
     const subTitle = useForm('');
     const content = useForm('');
 
-    const handlesubmit = (e)=>{
-        e.preventDefault();
-        console.log('Title: ', title);
-        console.log('Subtitle: ', subTitle);
-        console.log('Content: ', content);
+    function handlesubmit(e){
+      e.preventDefault();
+      console.log('Title', title);
+      console.log('SubTitle', subTitle);
+      console.log('Content', content);
+  
+      firestore.collection('posts').add({
+        Title: title.value,
+        Subtitle: subTitle.value,
+        Content: content.value,
+        CreatedAt: new Date(),
+      })
     }
   return (
     <form onSubmit={handlesubmit}>
