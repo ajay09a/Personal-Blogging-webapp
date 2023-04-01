@@ -17,25 +17,23 @@ const Home = () => {
   }, [])
   return(
     <>
-      <section class="hero" />
+      <section className="hero" />
       <section className='section1'>
         <div>
-          <h1>Tech Blog</h1>
-          <div id='blog-by'>Ajay</div>
+          <h1>Blog</h1>
           {
             posts.map((post, index)=>{
-              return (<>
-                        <div className='post' key={`post-${index}`}>
+              return (<><Link to={`/post/${post.id}`}>
+                        <div className='post mainContainer' key={`post-${index}`}>
                           <div className='headingimg'>
                             <img className='blogpostimg' src={post.Image} alt={post.Title} />
                           </div>
                           <div className='headingpost'>
-                            <Link to={`/post/${post.id}`}>
-                              <h3>{post.Title}</h3>
-                            </Link>
+                            <h3>{post.Title}</h3>
                             <p>{post.Subtitle}</p>
                           </div>
                         </div>
+                        </Link>
               </>)
             })
           }

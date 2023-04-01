@@ -10,10 +10,15 @@ const PostDetail = () => {
       setpost(snapshot.data());
     })
   }, [])
-  return( <div>
-            <h1>{post.title}</h1>
+  return(
+        <div className='postDetailContainer'>
+          <img src={post.Image} />
+          <div className='postDetailContent'>
+            <h1>{post.Title}</h1>
             <p>{post.Content}</p>
-  </div>)
+          </div>
+        </div>
+  )
 }
 
 export default PostDetail;

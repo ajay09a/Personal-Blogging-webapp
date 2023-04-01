@@ -1,20 +1,23 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import emoji from '../assets/emoji.jpg'
 
 const Navbar = () => {
   return (
     <>
-        <nav class="navbar">
-          <a id="brand" href="#">Logo</a>
-          <ul class="nav-list">
-            <li class="nav-item">
+        <nav className="navbar">
+          <a id="brand" href="/">
+            <img src={emoji}/>
+          </a>
+          <ul className="nav-list">
+            <li className="nav-item">
               <Link to="/">Home</Link>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <Link to="create-post">Create</Link>
             </li>
-            <li class="nav-item">
-              <Link to="create-post">About Me</Link>
+            <li className="nav-item">
+              <Link to="aboutme">About Me</Link>
             </li>
           </ul>
         </nav>

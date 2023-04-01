@@ -26,14 +26,10 @@ const CreatePost = () => {
     <section className='section1 createpost'>
     <form onSubmit={handlesubmit}>
       <h1>Create Post</h1>
-        <label>Title: </label>
         <input className='inputvalue' placeholder='Title' {...title} />
-        <label>Subtitle: </label>
         <input className='inputvalue' placeholder='Subtitle' {...subTitle} />
-        <label>Content: </label>
+        <input className='inputvalue' name="image" placeholder='Image Url' {...image}></input>
         <textarea className='inputvalue' rows='5' placeholder='Content' {...content} />
-        <label for="myfile">Choose Image</label>
-        <input type="file" id="myfile" name="image" {...image}></input>
         <button>Submit</button>
     </form>
     </section>
