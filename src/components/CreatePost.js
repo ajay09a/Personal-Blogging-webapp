@@ -6,6 +6,7 @@ const CreatePost = () => {
     const title = useForm('');
     const subTitle = useForm('');
     const content = useForm('');
+    const image = useForm('');
 
     function handlesubmit(e){
       e.preventDefault();
@@ -17,19 +18,25 @@ const CreatePost = () => {
         Title: title.value,
         Subtitle: subTitle.value,
         Content: content.value,
+        Image: image.value,
         CreatedAt: new Date(),
       })
     }
   return (
+    <section className='section1 createpost'>
     <form onSubmit={handlesubmit}>
+      <h1>Create Post</h1>
         <label>Title: </label>
-        <input {...title} />
+        <input className='inputvalue' placeholder='Title' {...title} />
         <label>Subtitle: </label>
-        <input {...subTitle} />
+        <input className='inputvalue' placeholder='Subtitle' {...subTitle} />
         <label>Content: </label>
-        <input {...content} />
+        <textarea className='inputvalue' rows='5' placeholder='Content' {...content} />
+        <label for="myfile">Choose Image</label>
+        <input type="file" id="myfile" name="image" {...image}></input>
         <button>Submit</button>
     </form>
+    </section>
   )
 }
 
