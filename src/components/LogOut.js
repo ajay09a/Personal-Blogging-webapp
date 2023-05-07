@@ -3,7 +3,7 @@ import { signOut } from 'firebase/auth'
 import { auth } from '../firebase'
 import {useNavigate} from 'react-router-dom'
 
-const LogOut = ({user}) => {
+const LogOut = ({user, setuser}) => {
     const navigate = useNavigate();
     useEffect(() => {
         navigate("/")
@@ -11,6 +11,7 @@ const LogOut = ({user}) => {
     
     const handleLogOut= ()=>{
         signOut(auth).then((res)=>{
+            setuser(!user);
             console.log("sign out")
             
         })
