@@ -11,7 +11,7 @@ function App() {
   const [user, setuser] = useState(false)
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar user={user} />
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route exact path="/post/:postId" element={<PostDetail/>} />

@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import emoji from '../assets/emoji.jpg'
 
-const Navbar = () => {
+const Navbar = ({user}) => {
   return (
     <>
         <nav className="navbar">
@@ -16,9 +16,11 @@ const Navbar = () => {
             <li className="nav-item">
               <Link to="admin">Admin</Link>
             </li>
-            <li className="nav-item">
+            {user?<li className="nav-item">
+              <Link to="logout">Log-out</Link>
+            </li>:<li className="nav-item">
               <Link to="aboutme">About Me</Link>
-            </li>
+            </li>}
           </ul>
         </nav>
     </>
