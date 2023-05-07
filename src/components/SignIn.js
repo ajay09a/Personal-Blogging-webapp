@@ -16,7 +16,7 @@ const SignIn = ({setuser}) => {
         }
         signInWithEmailAndPassword(auth, email, password).then((res)=>{
             setuser(true)
-          navigate("/create-post")
+          navigate("/")
         })
         .catch((err)=>{
           seterror(err.message);

@@ -13,14 +13,19 @@ const Navbar = ({user}) => {
             <li className="nav-item">
               <Link to="/">Home</Link>
             </li>
+            
+            {user?<><li className="nav-item">
+              <Link to="create-post">Create</Link>
+            </li>
             <li className="nav-item">
+              <Link to="logout">Log-out</Link>
+            </li>
+            </>:<><li className="nav-item">
               <Link to="admin">Admin</Link>
             </li>
-            {user?<li className="nav-item">
-              <Link to="logout">Log-out</Link>
-            </li>:<li className="nav-item">
+            <li className="nav-item">
               <Link to="aboutme">About Me</Link>
-            </li>}
+            </li></>}
           </ul>
         </nav>
     </>

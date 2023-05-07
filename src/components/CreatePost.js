@@ -30,7 +30,7 @@ const CreatePost = () => {
           })
         })
       });
-  
+
     }
   return (
     <section className='section1 createpost'>

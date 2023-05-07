@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Navbar user={user} />
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<Home user={user}/>} />
         <Route exact path="/post/:postId" element={<PostDetail/>} />
         {user?<Route exact path="/create-post" element={<CreatePost/>} />:null}
         <Route exact path="/admin" element={<SignIn setuser={setuser}/>} />

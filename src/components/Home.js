@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {firestore} from '../firebase';
 import { Link } from 'react-router-dom';
+import { doc, deleteDoc } from "firebase/firestore";
 
-const Home = () => {
+const Home = ({user}) => {
   const [posts, setposts] = useState([]);
   useEffect(()=>{
     firestore.collection('posts').get().then((snapshot)=>{
@@ -15,6 +16,9 @@ const Home = () => {
       setposts(post);
     })
   }, [])
+  const handleDelete = async(id)=>{
+    await deleteDoc(doc(firestore, "posts", id));
+  }
   return(
     <>
       <section className="hero" />
@@ -34,6 +38,9 @@ const Home = () => {
                           </div>
                         </div>
                         </Link>
+                        {user?<div>
+                            <button onClick={()=>handleDelete(post.id)}>Delete</button>
+                          </div>:null}
               </>)
             })
           }
